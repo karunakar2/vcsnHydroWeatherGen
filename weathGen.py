@@ -106,10 +106,7 @@ for thisRow in selectPoints.iterrows():
 #interpolation function
 def myInterpFn(var,intrpFn,g):
     #print(g)
-    if var == 'Rainfall':
-        thisMax = 250 #mm is a storm
-    else:
-        thisMax = 12 #mm is a drought PET
+    thisMax = 250 if var == 'Rainfall' else 12
     temp = np.nan
     try:
         temp = intrpFn(g.x,g.y)[0]
